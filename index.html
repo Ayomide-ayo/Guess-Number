@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            background-image: url(guess.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: rgb(0, 0, 0, 0.6);
+            background-blend-mode: overlay;
+            width: 100%;
+            height: 100vh;
+        }
+        .back{
+            text-align: center;
+            font-size: 30px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 500;
+            color: white;
+            margin-top: 100px;
+        }
+       
+        #first{
+            padding: 10px;
+            width: 60px;
+            border: 1px solid white;
+            outline: none;
+            text-align: center;
+
+        }
+        button{
+            background-color: red;
+            color: white;
+            font-size: 15px;
+            border: 1px solid red;
+            border-radius: 3px;
+            width: 100px;
+            padding: 10px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .bead{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 30px;
+        }
+        #correct{
+            text-align: center;
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            margin-top: 20px;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* margin-top: 50px; */
+        }
+        #display{
+            width: 300px;
+            border: 1px solid black;
+            border-radius: 4px;
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+
+            <p class="back">Guess the number</p>
+           
+            <div class="bead">     
+                <input type="text" id="first">
+                <button onclick="guessNumber()">Guess</button>
+            </div>
+            <div id="display"></div>
+            <p id="correct" class="display" >Score:  </p>
+
+
+        </div>
+       
+    </div>
+</body>
+</html>
+
+<script>
+    let firstInput = document.getElementById('first')
+    let div = document.getElementById('display')
+    let score = document.getElementById('correct')
+   
+    function guessNumber() {
+        
+        let randNum = Math.floor(Math.random() * 10)
+        let numInp = Number(firstInput.value)
+        let myScore = 0  
+
+        div.innerHTML = firstInput.value
+
+        if (firstInput.value === '') {
+            div.innerHTML = 'You have to guess a number'
+           
+        } else if(numInp === randNum) {
+            div.innerHTML = 'You are correct, the answer is' + ' ' + randNum 
+            score.innerHTML = 'Score :' + ' ' + ++myScore
+            console.log(++myScore);
+            
+
+        } else if(randNum !== firstInput.value) {
+            div.innerHTML = 'You are wrong, the answer is' + ' ' + randNum
+
+        } else {
+            div. innerHTML = 'Baby girl common, you can do better'
+        }
+
+    }
+</script>
