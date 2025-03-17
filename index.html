@@ -102,32 +102,39 @@
 </html>
 
 <script>
-    let firstInput = document.getElementById('first')
-    let div = document.getElementById('display')
+    let firstInput = document.getElementById('first') // collect value 0-9
+    let div = document.getElementById('display') // show our result 
     let score = document.getElementById('correct')
-    let myScore = 0
+    let myScore = 0 // should be outside the function , not inside 
    
     function guessNumber() {
         
-        let randNum = Math.floor(Math.random() * 10)
+        let randNum = Math.floor(Math.random() * 10) // 0 - 9
         let numInp = Number(firstInput.value)
           
 
         div.innerHTML = firstInput.value
 
-        if (firstInput.value === '') {
+        if (firstInput.value.trim() === '') {  // first validation, to make sure there is no empty space  
             div.innerHTML = 'You have to guess a number'
            
+        } else if (isNaN(numInp)) { // second validation, isnan is checking if it is a number but incase you use input type number you dont need this validation 
+            div.innerHTML = 'Please enter a numeric value'
+
+        } else if (numInp < 0 || numInp > 9) { // and(&&) is waiting for the two of them to be true but or(||) is waiting for one of them to be true , this is the third validation
+            div.innerHTML = 'You have to have a number between 0 - 9 '
+            
         } else if(numInp === randNum) {
             div.innerHTML = 'You are correct, the answer is' + ' ' + randNum 
             score.innerHTML = 'Score :' + ' ' + ++myScore
-
+            // 
         } else if(randNum !== firstInput.value) {
             div.innerHTML = 'You are wrong, the answer is' + ' ' + randNum
 
         } else {
             div. innerHTML = 'Baby girl common, you can do better'
         }
+       
 
     }
 </script>
