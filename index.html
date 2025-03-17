@@ -105,12 +105,13 @@
     let firstInput = document.getElementById('first')
     let div = document.getElementById('display')
     let score = document.getElementById('correct')
+    let myScore = 0
    
     function guessNumber() {
         
         let randNum = Math.floor(Math.random() * 10)
         let numInp = Number(firstInput.value)
-        let myScore = 0  
+          
 
         div.innerHTML = firstInput.value
 
@@ -120,8 +121,6 @@
         } else if(numInp === randNum) {
             div.innerHTML = 'You are correct, the answer is' + ' ' + randNum 
             score.innerHTML = 'Score :' + ' ' + ++myScore
-            console.log(++myScore);
-            
 
         } else if(randNum !== firstInput.value) {
             div.innerHTML = 'You are wrong, the answer is' + ' ' + randNum
