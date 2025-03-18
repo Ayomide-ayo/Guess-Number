@@ -118,7 +118,7 @@
         if (firstInput.value.trim() === '') {  // first validation, to make sure there is no empty space  
             div.innerHTML = 'You have to guess a number'
            
-        } else if (isNaN(numInp)) { // second validation, isnan is checking if it is a number but incase you use input type number you dont need this validation 
+        } else if (isNaN(numInp)) { // second validation, isNaN is checking if it is a number but incase you use input type number you dont need this validation 
             div.innerHTML = 'Please enter a numeric value'
 
         } else if (numInp < 0 || numInp > 9) { // and(&&) is waiting for the two of them to be true but or(||) is waiting for one of them to be true , this is the third validation
